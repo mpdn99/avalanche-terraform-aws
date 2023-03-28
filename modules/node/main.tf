@@ -18,3 +18,30 @@ resource "aws_instance" "node" {
     Name = format("%s-node", var.project)
   }
 }
+
+resource "aws_ebs_volume" "data-vol" {
+  availability_zone = var.availability_zone
+  size = 1024
+  type = "gp2"
+  tags = {
+    Name = format("%s-data-vol", var.project)
+  }
+}
+
+resource "aws_volume_attachment" "data-vol-attach" {
+  device_name = "/dev/sda1"
+  volume_id = aws_ebs_volume.data-vol.id
+  instance_id = aws_instance.node.id
+}
+
+resource "aws_eip" "node-eip" {
+  vpc = true
+  tags = {
+    Name = format("%s-node-eip", var.project)
+  }
+}
+
+resource "aws_eip_association" "eip-association" {
+  instance_id = aws_instance.node.id
+  allocation_id = aws_eip.node-eip.id
+}

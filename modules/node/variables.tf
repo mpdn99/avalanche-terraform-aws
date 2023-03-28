@@ -13,3 +13,7 @@ variable "subnet_public_id" {
 variable "public_security_group_id" {
     type = string
 }
+
+variable "availability_zone" {
+    type = string
+}

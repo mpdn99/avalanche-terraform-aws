@@ -54,9 +54,23 @@ resource "aws_security_group" "public_security_group" {
     ]
 
     ingress {
-        from_port = 0
-        to_port = 0
-        protocol = "-1"
+        from_port = 22
+        to_port = 22
+        protocol = "tcp"
+        self = true
+    }
+
+    ingress {
+        from_port = 9651
+        to_port = 9651
+        protocol = "tcp"
+        self = true
+    }
+
+    ingress {
+        from_port = 9650
+        to_port = 9650
+        protocol = "tcp"
         self = true
     }
 
