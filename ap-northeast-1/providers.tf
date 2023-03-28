@@ -8,7 +8,7 @@
     }
     cloud {
         organization = "Solashi"
-        workspace {
+        workspaces {
             name = "avalanche-terraform-aws"
         }
     }
