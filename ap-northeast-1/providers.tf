@@ -6,6 +6,12 @@
             version = ">= 4.60.0"
         }
     }
+    cloud {
+      organization = "Solashi"
+    }
+    workspace {
+      name = "avalanche-terraform-aws"
+    }
 }
 
 provider "aws" {
