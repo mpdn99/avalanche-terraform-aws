@@ -7,10 +7,10 @@
         }
     }
     cloud {
-      organization = "Solashi"
-    }
-    workspace {
-      name = "avalanche-terraform-aws"
+        organization = "Solashi"
+        workspace {
+            name = "avalanche-terraform-aws"
+        }
     }
 }
 
